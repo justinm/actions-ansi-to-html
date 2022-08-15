@@ -1,0 +1,16 @@
+name: "AWS CDK GitHub Actions"
+description: "Runs AWS CDK commands via GitHub Actions."
+author: "Justin McCormick <me@justinmccormick.com>"
+branding:
+  icon: "cloud-lightning"
+  color: "blue"
+inputs:
+  input:
+    description: "The raw input containing ANSI color codes"
+    required: true
+outputs:
+  contents:
+    description: "A version of 'input' where all ANSI codes have been replaced with HTML color codes."
+runs:
+  using: "node16"
+  main: "index.js"

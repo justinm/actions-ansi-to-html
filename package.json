@@ -1,0 +1,52 @@
+{
+  "name": "ansi-to-html-action",
+  "version": "0.0.0",
+  "main": "index.js",
+  "type": "module",
+  "license": "MIT",
+  "repository": "git@github.com:justinm/ansi-to-html-action.git",
+  "homepage": "https://github.com/justinm/ansi-to-html-action",
+  "author": {
+    "name": "Justin McCormick",
+    "email": "me@justinmccormick.com",
+    "url": "https://justinmccormick.com/ansi-to-html-action"
+  },
+  "scripts": {
+    "lint": "eslint --ext js ."
+  },
+  "dependencies": {
+    "@actions/core": "^1.9.1",
+    "@actions/github": "^5.0.3",
+    "ansi-to-html": "^0.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.3",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
+    "prettier-eslint": "^15.0.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "es6": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "prettier"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "rules": {
+      "prettier/prettier": "error"
+    }
+  },
+  "prettierOptions": {
+    "bracketSpacing": true
+  }
+}
