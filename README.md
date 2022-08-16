@@ -18,6 +18,7 @@ A Github Action that converts ANSI color sequences to HTML friendly HEX codes.
 
 - [Examples](#examples)
 - [Contributors](#contributors)
+- [About the Author](#about-the-author)
 - [Sponsoring](#sponsoring)
 
 <!-- tocstop -->
@@ -85,6 +86,12 @@ jobs:
 
 [![Contributors][contributors-avatars]][contributors-url]
 
+## About the Author
+
+[Justin McCormick](https://justinmccormick.com) is a DevOps Engineer based in Indianapolis, IN specializing in AWS based microservices.
+
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
 ## Sponsoring
 
 [![Github Sponsors][sponsors-shield]][sponsors-url]
@@ -109,3 +116,5 @@ jobs:
 [sponsors-shield]: https://img.shields.io/github/sponsors/justinm?style=for-the-badge&logo=appveyor
 [patreon-url]: https://patreon.com/justinmccormick
 [patreon-shield]: https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%justinmccormick%26type%3Dpatrons&style=for-the-badge&logo=patreon&label=Patreon
+[linkedin-shield]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
+[linkedin-url]: https://www.linkedin.com/in/justinlmccormick/
