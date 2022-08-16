@@ -6,18 +6,18 @@ branding:
   color: "blue"
 inputs:
   input:
-    description: "The raw input containing ANSI color codes"
+    description: "The raw input containing ANSI color codes. An input or path must be specified, but not both."
     required: false
   path:
-    description: "The raw input containing ANSI color codes"
+    description: "The path to the file containing ANSI color codes. An input or path must be specified, but not both."
     required: false
   encoding:
-    description: "The encoding for the raw input. Defaults to utf8"
+    description: "The encoding for the raw input. Defaults to utf8."
     default: "utf8"
     required: true
 outputs:
   contents:
-    description: "A version of 'input' where all ANSI codes have been replaced with HTML color codes."
+    description: "The input or contents of path where all ANSI codes have been replaced with HTML color codes."
 runs:
   using: "node16"
   main: "./index.js"

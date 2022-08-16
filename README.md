@@ -1,6 +1,7 @@
 ## "ANSI to HTML" Action For GitHub Actions
 
 A Github Action that converts ANSI color sequences to HTML friendly HEX codes. 
+
 <div style="text-align: center;">
 
 [![Contributors][contributors-shield]][contributors-url]
@@ -10,17 +11,42 @@ A Github Action that converts ANSI color sequences to HTML friendly HEX codes.
 [![MIT License][license-shield]][license-url]
 
 </div>
+
 **Table of Contents**
 
 <!-- toc -->
 
-- [Usage](#usage)
+- [Examples](#examples)
 - [Contributors](#contributors)
 - [Sponsoring](#sponsoring)
 
 <!-- tocstop -->
 
-## Usage
+
+## Inputs
+
+* `path` **Required** The path to the file containing ANSI color codes. **OR**
+* `input` **Required** The raw input containing ANSI color codes.
+* `encoding` **Optional** The encoding for the raw input. Defaults to utf8.
+
+*Note, only path or input may be specified at a time.*
+
+## Outputs
+
+* `contents` **Required** The input or contents of path where all ANSI codes have been replaced with HTML color codes. **OR**
+
+## Examples
+
+Read a file from disk that contains ANSI color escape sequences, escape its contents and echo its contents to an active pull request.
+
+```yaml
+    - run: echo -en "\e[36mSample Text\e[0m" | tee output.log
+    - id: output-log
+      uses: justinm/ansi-to-html-action@v0
+      with:
+        path: ./output.log
+    - run: echo "${{ steps.output-log.outputs.contents }}"
+```
 
 Read a file from disk that contains ANSI color escape sequences, escape its contents and post its contents to an active pull request.
 
