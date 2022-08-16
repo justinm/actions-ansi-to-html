@@ -25,6 +25,12 @@ A Github Action that converts ANSI color sequences to HTML friendly HEX codes.
 Read a file from disk that contains ANSI color escape sequences, escape its contents and post its contents to an active pull request.
 
 ```yaml
+jobs:
+  build:
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
     - run: ./doSomething.sh | tee output.log
     - id: output-log
       uses: justinm/ansi-to-html-action@v0

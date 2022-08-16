@@ -1,0 +1,79 @@
+name: Push Runner
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+jobs:
+  test:
+    name: Test Action
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        version: [ 16 ]
+        os: [ ubuntu-latest, windows-latest ]
+    env:
+      EXPECTED_CONTENT: "<span style=color:#0AA>Sample Text</span>"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          cache: npm
+          node-version: '16'
+      - name: Install dependencies
+        run: npm install
+      - name: Lint
+        run: npm run lint
+      - name: Unit Tests
+        run: npm run test
+      - name: Generate String
+        run: echo -en "\e[36mSample Text\e[0m" | tee output.log
+      - name: Read test file from disk
+        id: raw
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./output.log
+      - name: Run action on file path
+        id: parsed-path
+        uses: ./
+        with:
+          path: ./output.log
+      - name: Run action on input
+        id: parsed-input
+        uses: ./
+        with:
+          input: ${{ steps.raw.outputs.content }}
+      - name: "Path smoke test"
+        if: runner.os == 'Linux'
+        run: |
+          if [[ "${{ steps.parsed-path.outputs.contents }}" != "${{ env.EXPECTED_CONTENT }}" ]]; then
+            echo "'${{ steps.parsed-path.outputs.contents }}' != '${{ env.EXPECTED_CONTENT }}'"
+            exit 1
+          fi
+      - name: "Input smoke test"
+        if: runner.os == 'Linux'
+        run: |
+          if [[ "${{ steps.parsed-input.outputs.contents }}" != "${{ env.EXPECTED_CONTENT }}" ]]; then
+            echo "'${{ steps.parsed-input.outputs.contents }}' != '${{ env.EXPECTED_CONTENT }}'"
+            exit 1
+          fi
+  release:
+    name: Release Action
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/heads/master')
+    needs:
+      - test
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: npm
+          node-version: '16'
+      - run: npm install
+      - run: npm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

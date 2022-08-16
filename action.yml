@@ -7,10 +7,17 @@ branding:
 inputs:
   input:
     description: "The raw input containing ANSI color codes"
+    required: false
+  path:
+    description: "The raw input containing ANSI color codes"
+    required: false
+  encoding:
+    description: "The encoding for the raw input. Defaults to utf8"
+    default: "utf8"
     required: true
 outputs:
   contents:
     description: "A version of 'input' where all ANSI codes have been replaced with HTML color codes."
 runs:
   using: "node16"
-  main: "index.js"
+  main: "./index.js"

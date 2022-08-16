@@ -1,7 +1,7 @@
 {
   "name": "ansi-to-html-action",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "./index.js",
   "type": "module",
   "license": "MIT",
   "repository": "git@github.com:justinm/ansi-to-html-action.git",
@@ -12,7 +12,9 @@
     "url": "https://justinmccormick.com/ansi-to-html-action"
   },
   "scripts": {
-    "lint": "eslint --ext js ."
+    "lint": "eslint --ext js .",
+    "release": "npx semantic-release",
+    "test": "npx cross-env FORCE_COLOR=1 npx jest"
   },
   "dependencies": {
     "@actions/core": "^1.9.1",
@@ -20,12 +22,28 @@
     "ansi-to-html": "^0.7.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.5",
+    "@semantic-release/npm": "^9.0.1",
+    "@semantic-release/release-notes-generator": "^10.0.3",
+    "@types/jest": "^28.1.7",
     "@types/node": "^18.7.3",
+    "babel-jest": "^28.1.3",
+    "chalk": "^4.1.2",
+    "cross-env": "^7.0.3",
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jest": "^26.8.3",
     "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^28.1.3",
     "prettier": "^2.7.1",
-    "prettier-eslint": "^15.0.1"
+    "prettier-eslint": "^15.0.1",
+    "semantic-release": "^19.0.3",
+    "semantic-release-conventional-commits": "^3.0.0"
   },
   "eslintConfig": {
     "root": true,
@@ -44,9 +62,90 @@
     },
     "rules": {
       "prettier/prettier": "error"
-    }
+    },
+    "overrides": [
+      {
+        "files": [
+          "test/**"
+        ],
+        "plugins": [
+          "jest"
+        ],
+        "extends": [
+          "plugin:jest/recommended"
+        ],
+        "rules": {
+          "jest/prefer-expect-assertions": "off"
+        }
+      }
+    ]
   },
   "prettierOptions": {
     "bracketSpacing": true
+  },
+  "jest": {
+    "transform": {
+      "\\.[jt]sx?$": "babel-jest"
+    }
+  },
+  "release": {
+    "branches": [
+      "master"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits",
+          "parserOpts": {
+            "noteKeywords": [
+              "BREAKS",
+              "BREAKING CHANGE",
+              "BREAKING CHANGES",
+              "BACKWARDS COMPAT",
+              "BACKWARDS COMPATIBILITY"
+            ]
+          }
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/changelog",
+        {
+          "changeLogFile": "CHANGELOG.md"
+        }
+      ],
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "CHANGELOG.md",
+              "label": "Changelog"
+            },
+            {
+              "path": "README.md",
+              "label": "Readme"
+            },
+            {
+              "path": "LICENSE.md",
+              "label": "License"
+            }
+          ]
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
+    ]
   }
 }
