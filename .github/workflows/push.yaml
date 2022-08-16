@@ -7,11 +7,7 @@ on:
 jobs:
   test:
     name: Test Action
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        version: [ 16 ]
-        os: [ ubuntu-latest, windows-latest ]
+    runs-on: ubuntu-latest
     env:
       EXPECTED_CONTENT: "<span style=color:#0AA>Sample Text</span>"
     steps:
@@ -46,14 +42,12 @@ jobs:
         with:
           input: ${{ steps.raw.outputs.content }}
       - name: "Path smoke test"
-        if: runner.os == 'Linux'
         run: |
           if [[ "${{ steps.parsed-path.outputs.contents }}" != "${{ env.EXPECTED_CONTENT }}" ]]; then
             echo "'${{ steps.parsed-path.outputs.contents }}' != '${{ env.EXPECTED_CONTENT }}'"
             exit 1
           fi
       - name: "Input smoke test"
-        if: runner.os == 'Linux'
         run: |
           if [[ "${{ steps.parsed-input.outputs.contents }}" != "${{ env.EXPECTED_CONTENT }}" ]]; then
             echo "'${{ steps.parsed-input.outputs.contents }}' != '${{ env.EXPECTED_CONTENT }}'"
