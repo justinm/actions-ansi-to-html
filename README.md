@@ -43,7 +43,7 @@ Read a file from disk that contains ANSI color escape sequences, escape its cont
 ```yaml
     - run: echo -en "\e[36mSample Text\e[0m" | tee output.log
     - id: output-log
-      uses: justinm/ansi-to-html-action@v0
+      uses: justinm/actions-ansi-to-html@v0
       with:
         path: ./output.log
     - run: echo "${{ steps.output-log.outputs.contents }}"
@@ -60,7 +60,7 @@ jobs:
     steps:
     - run: ./doSomething.sh | tee output.log
     - id: output-log
-      uses: justinm/ansi-to-html-action@v0
+      uses: justinm/actions-ansi-to-html@v0
       with:
         path: ./output.log
     - run: echo "${{ steps.output-log.outputs.contents }}"
@@ -99,17 +99,17 @@ jobs:
 [<img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Contributors" height="30" />][sponsors-url]
 
 
-[contributors-avatars]: https://contrib.rocks/image?repo=justinm/ansi-to-html-action
-[contributors-shield]: https://img.shields.io/github/contributors/justinm/ansi-to-html-action.svg?style=for-the-badge
-[contributors-url]: https://github.com/justinm/ansi-to-html-action/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/justinm/ansi-to-html-action.svg?style=for-the-badge
-[forks-url]: https://github.com/justinm/ansi-to-html-action/network/members
-[stars-shield]: https://img.shields.io/github/stars/justinm/ansi-to-html-action.svg?style=for-the-badge
-[stars-url]: https://github.com/justinm/ansi-to-html-action/stargazers
-[issues-shield]: https://img.shields.io/github/issues/justinm/ansi-to-html-action.svg?style=for-the-badge
-[issues-url]: https://github.com/justinm/ansi-to-html-action/issues
-[license-shield]: https://img.shields.io/github/license/justinm/ansi-to-html-action.svg?style=for-the-badge
-[license-url]: https://github.com/justinm/ansi-to-html-action/blob/master/LICENSE.md
+[contributors-avatars]: https://contrib.rocks/image?repo=justinm/actions-ansi-to-html
+[contributors-shield]: https://img.shields.io/github/contributors/justinm/actions-ansi-to-html.svg?style=for-the-badge
+[contributors-url]: https://github.com/justinm/actions-ansi-to-html/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/justinm/actions-ansi-to-html.svg?style=for-the-badge
+[forks-url]: https://github.com/justinm/actions-ansi-to-html/network/members
+[stars-shield]: https://img.shields.io/github/stars/justinm/actions-ansi-to-html.svg?style=for-the-badge
+[stars-url]: https://github.com/justinm/actions-ansi-to-html/stargazers
+[issues-shield]: https://img.shields.io/github/issues/justinm/actions-ansi-to-html.svg?style=for-the-badge
+[issues-url]: https://github.com/justinm/actions-ansi-to-html/issues
+[license-shield]: https://img.shields.io/github/license/justinm/actions-ansi-to-html.svg?style=for-the-badge
+[license-url]: https://github.com/justinm/actions-ansi-to-html/blob/master/LICENSE.md
 [buymeacoffee-url]: https://www.buymeacoffee.com/justinmccormick
 [buymeacoffee-shield]: https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png
 [sponsors-url]: https://github.com/sponsors/justinm

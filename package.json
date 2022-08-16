@@ -1,15 +1,15 @@
 {
-  "name": "ansi-to-html-action",
+  "name": "actions-ansi-to-html",
   "version": "0.0.0",
   "main": "./index.js",
   "type": "module",
   "license": "MIT",
-  "repository": "git@github.com:justinm/ansi-to-html-action.git",
-  "homepage": "https://github.com/justinm/ansi-to-html-action",
+  "repository": "git@github.com:justinm/actions-ansi-to-html.git",
+  "homepage": "https://github.com/justinm/actions-ansi-to-html",
   "author": {
     "name": "Justin McCormick",
     "email": "me@justinmccormick.com",
-    "url": "https://justinmccormick.com/ansi-to-html-action"
+    "url": "https://justinmccormick.com"
   },
   "scripts": {
     "lint": "eslint --ext js .",

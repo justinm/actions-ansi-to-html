@@ -1,5 +1,5 @@
-name: "AWS CDK GitHub Actions"
-description: "Runs AWS CDK commands via GitHub Actions."
+name: "ANSI to HTML"
+description: "Escapes ANSI color escape sequences into HTML HEX colors."
 author: "Justin McCormick <me@justinmccormick.com>"
 branding:
   icon: "cloud-lightning"
