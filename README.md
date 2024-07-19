@@ -86,18 +86,6 @@ jobs:
 
 [![Contributors][contributors-avatars]][contributors-url]
 
-## About the Author
-
-[Justin McCormick](https://justinmccormick.com) is a DevOps Engineer based in Indianapolis, IN specializing in AWS based microservices.
-
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-## Sponsoring
-
-[![Github Sponsors][sponsors-shield]][sponsors-url]
-[![Patreon][patreon-shield]][patreon-url]
-[<img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Contributors" height="30" />][sponsors-url]
-
 
 [contributors-avatars]: https://contrib.rocks/image?repo=justinm/actions-ansi-to-html
 [contributors-shield]: https://img.shields.io/github/contributors/justinm/actions-ansi-to-html.svg?style=for-the-badge
@@ -110,11 +98,3 @@ jobs:
 [issues-url]: https://github.com/justinm/actions-ansi-to-html/issues
 [license-shield]: https://img.shields.io/github/license/justinm/actions-ansi-to-html.svg?style=for-the-badge
 [license-url]: https://github.com/justinm/actions-ansi-to-html/blob/master/LICENSE.md
-[buymeacoffee-url]: https://www.buymeacoffee.com/justinmccormick
-[buymeacoffee-shield]: https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png
-[sponsors-url]: https://github.com/sponsors/justinm
-[sponsors-shield]: https://img.shields.io/github/sponsors/justinm?style=for-the-badge&logo=appveyor
-[patreon-url]: https://patreon.com/justinmccormick
-[patreon-shield]: https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%justinmccormick%26type%3Dpatrons&style=for-the-badge&logo=patreon&label=Patreon
-[linkedin-shield]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
-[linkedin-url]: https://www.linkedin.com/in/justinlmccormick/
